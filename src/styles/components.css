@@ -1,0 +1,75 @@
+@tailwind components;
+
+@layer components {
+  .card-normal {
+    @apply bg-gradient-to-b from-pokemon-normal-600 to-pokemon-normal-600/50;
+  }
+
+  .card-fire {
+    @apply bg-gradient-to-b from-pokemon-fire-600 to-pokemon-fire-600/50;
+  }
+
+  .card-water {
+    @apply bg-gradient-to-b from-pokemon-water-600 to-pokemon-water-600/50;
+  }
+
+  .card-electric {
+    @apply bg-gradient-to-b from-pokemon-electric-600 to-pokemon-electric-600/50;
+  }
+
+  .card-grass {
+    @apply bg-gradient-to-b from-pokemon-grass-600 to-pokemon-grass-600/50;
+  }
+
+  .card-ice {
+    @apply bg-gradient-to-b from-pokemon-ice-600 to-pokemon-ice-600/50;
+  }
+
+  .card-fighting {
+    @apply bg-gradient-to-b from-pokemon-fighting-600 to-pokemon-fighting-600/50;
+  }
+
+  .card-poison {
+    @apply bg-gradient-to-b from-pokemon-poison-600 to-pokemon-poison-600/50;
+  }
+
+  .card-ground {
+    @apply bg-gradient-to-b from-pokemon-ground-600 to-pokemon-ground-600/50;
+  }
+
+  .card-flying {
+    @apply bg-gradient-to-b from-pokemon-flying-600 to-pokemon-flying-600/50;
+  }
+
+  .card-psychic {
+    @apply bg-gradient-to-b from-pokemon-psychic-600 to-pokemon-psychic-600/50;
+  }
+
+  .card-bug {
+    @apply bg-gradient-to-b from-pokemon-bug-600 to-pokemon-bug-600/50;
+  }
+
+  .card-rock {
+    @apply bg-gradient-to-b from-pokemon-rock-600 to-pokemon-rock-600/50;
+  }
+
+  .card-ghost {
+    @apply bg-gradient-to-b from-pokemon-ghost-600 to-pokemon-ghost-600/50;
+  }
+
+  .card-dragon {
+    @apply bg-gradient-to-b from-pokemon-dragon-600 to-pokemon-dragon-600/50;
+  }
+
+  .card-dark {
+    @apply bg-gradient-to-b from-pokemon-dark-600 to-pokemon-dark-600/50;
+  }
+
+  .card-steel {
+    @apply bg-gradient-to-b from-pokemon-steel-600 to-pokemon-steel-600/50;
+  }
+
+  .card-fairy {
+    @apply bg-gradient-to-b from-pokemon-fairy-600 to-pokemon-fairy-600/50;
+  }
+}

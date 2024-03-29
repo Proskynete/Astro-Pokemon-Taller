@@ -1,0 +1,71 @@
+---
+import "../styles/base.css";
+import "../styles/components.css";
+import "../styles/utilities.css";
+
+import { ViewTransitions } from "astro:transitions";
+
+interface Props {
+  title: string;
+  type?: string;
+}
+
+const baseURL =
+  import.meta.env.BASE_URL === "/" ? "" : `${import.meta.env.BASE_URL}/`;
+const { title, type = "normal" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Taller de Astro usando la API de Pokemon"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <ViewTransitions />
+  </head>
+
+  <body
+    class:list={[
+      "w-full min-h-screen !bg-gradient-to-t transition-colors duration-200 ease-in-out",
+      {
+        "card-normal": type === "normal",
+        "card-fire": type === "fire",
+        "card-water": type === "water",
+        "card-electric": type === "electric",
+        "card-grass": type === "grass",
+        "card-ice": type === "ice",
+        "card-fighting": type === "fighting",
+        "card-poison": type === "poison",
+        "card-ground": type === "ground",
+        "card-flying": type === "flying",
+        "card-psychic": type === "psychic",
+        "card-bug": type === "bug",
+        "card-rock": type === "rock",
+        "card-ghost": type === "ghost",
+        "card-dragon": type === "dragon",
+        "card-dark": type === "dark",
+        "card-steel": type === "steel",
+        "card-fairy": type === "fairy",
+      },
+    ]}
+  >
+    <main
+      class="mx-auto max-w-3xl lg:max-w-5xl xl:max-w-7xl px-4 sm:px-6 xl:px-0"
+    >
+      <header class="flex justify-center items-center pt-6 pb-8">
+        <a href={baseURL}>
+          <img src={`${baseURL}pokemon_logo.svg`} alt="Pokemon logo" />
+        </a>
+      </header>
+
+      <slot />
+    </main>
+  </body>
+</html>

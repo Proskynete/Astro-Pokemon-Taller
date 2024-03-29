@@ -1,0 +1,93 @@
+---
+import { Image } from "astro:assets";
+import type { SmallPokemon } from "../types/pokedex";
+import Card from "./Card.astro";
+import { getPokemonInfo } from "../services/pokemon";
+
+type Props = SmallPokemon;
+const { name } = Astro.props;
+
+const data = await getPokemonInfo(name);
+
+const pricinpalType = data.types[0].type.name;
+const prettyId = data.id.toString().padStart(3, "0");
+
+const baseURL =
+  import.meta.env.BASE_URL === "/" ? "" : `${import.meta.env.BASE_URL}/`;
+const pokemonURL = `${baseURL}${name}`;
+const pokemonImage =
+  data.sprites.other?.["official-artwork"].front_default || "";
+---
+
+<a href={pokemonURL}>
+  <Card type={pricinpalType}>
+    <div class="flex flex-col items-center gap-4 w-full">
+      <Image
+        src={pokemonImage}
+        alt={`${name} image`}
+        width="250"
+        height="250"
+        transition:name={`${name}-image`}
+      />
+    </div>
+
+    <div
+      class:list={[
+        "border-l-0 border-b-0 border-2 rounded-tr-3xl flex justify-between items-center w-full pr-4",
+        {
+          "border-pokemon-normal-900": pricinpalType === "normal",
+          "border-pokemon-fire-900": pricinpalType === "fire",
+          "border-pokemon-water-900": pricinpalType === "water",
+          "border-pokemon-electric-900": pricinpalType === "electric",
+          "border-pokemon-grass-900": pricinpalType === "grass",
+          "border-pokemon-ice-900": pricinpalType === "ice",
+          "border-pokemon-fighting-900": pricinpalType === "fighting",
+          "border-pokemon-poison-900": pricinpalType === "poison",
+          "border-pokemon-ground-900": pricinpalType === "ground",
+          "border-pokemon-flying-900": pricinpalType === "flying",
+          "border-pokemon-psychic-900": pricinpalType === "psychic",
+          "border-pokemon-bug-900": pricinpalType === "bug",
+          "border-pokemon-rock-900": pricinpalType === "rock",
+          "border-pokemon-ghost-900": pricinpalType === "ghost",
+          "border-pokemon-dragon-900": pricinpalType === "dragon",
+          "border-pokemon-dark-900": pricinpalType === "dark",
+          "border-pokemon-steel-900": pricinpalType === "steel",
+          "border-pokemon-fairy-900": pricinpalType === "fairy",
+        },
+      ]}
+    >
+      <p
+        transition:name={`${name}-name`}
+        class:list={[
+          "w-fit rounded-r-full py-2 px-4 uppercase font-extrabold text-white",
+          {
+            "bg-pokemon-normal-900": pricinpalType === "normal",
+            "bg-pokemon-fire-900": pricinpalType === "fire",
+            "bg-pokemon-water-900": pricinpalType === "water",
+            "bg-pokemon-electric-900": pricinpalType === "electric",
+            "bg-pokemon-grass-900": pricinpalType === "grass",
+            "bg-pokemon-ice-900": pricinpalType === "ice",
+            "bg-pokemon-fighting-900": pricinpalType === "fighting",
+            "bg-pokemon-poison-900": pricinpalType === "poison",
+            "bg-pokemon-ground-900": pricinpalType === "ground",
+            "bg-pokemon-flying-900": pricinpalType === "flying",
+            "bg-pokemon-psychic-900": pricinpalType === "psychic",
+            "bg-pokemon-bug-900": pricinpalType === "bug",
+            "bg-pokemon-rock-900": pricinpalType === "rock",
+            "bg-pokemon-ghost-900": pricinpalType === "ghost",
+            "bg-pokemon-dragon-900": pricinpalType === "dragon",
+            "bg-pokemon-dark-900": pricinpalType === "dark",
+            "bg-pokemon-steel-900": pricinpalType === "steel",
+            "bg-pokemon-fairy-900": pricinpalType === "fairy",
+          },
+        ]}
+      >
+        {name}
+      </p>
+
+      <p class="text-white text-xs" transition:name={`${name}-id`}>
+        Nº{prettyId}
+      </p>
+    </div>
+  </Card>
+</a>

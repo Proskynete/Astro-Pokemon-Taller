@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PokemonCard from "../components/PokemonCard.astro";
+import { getAllPokemon } from "../services/pokemon";
+
+const { results } = await getAllPokemon();
+---
+
+<Layout title="Taller de Astro consumiento la API de Pokemon">
+  <div
+    class="space-y-8 sm:space-y-0 sm:grid sm:grid-cols-2 md:grid-cols-3 gap-8 mt-4"
+  >
+    {results.map((pokemon) => <PokemonCard {...pokemon} />)}
+  </div>
+</Layout>

@@ -1,0 +1,39 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+  as: Tag;
+  type: string;
+}>;
+
+const { as: Tag, class: className, type, ...props } = Astro.props;
+---
+
+<Tag
+  {...props}
+  class:list={[
+    "text-xl font-bold",
+    {
+      "text-pokemon-normal-950": type === "normal",
+      "text-pokemon-fire-950": type === "fire",
+      "text-pokemon-water-950": type === "water",
+      "text-pokemon-electric-950": type === "electric",
+      "text-pokemon-grass-950": type === "grass",
+      "text-pokemon-ice-950": type === "ice",
+      "text-pokemon-fighting-950": type === "fighting",
+      "text-pokemon-poison-950": type === "poison",
+      "text-pokemon-ground-950": type === "ground",
+      "text-pokemon-flying-950": type === "flying",
+      "text-pokemon-psychic-950": type === "psychic",
+      "text-pokemon-bug-950": type === "bug",
+      "text-pokemon-rock-950": type === "rock",
+      "text-pokemon-ghost-950": type === "ghost",
+      "text-pokemon-dragon-950": type === "dragon",
+      "text-pokemon-dark-950": type === "dark",
+      "text-pokemon-steel-950": type === "steel",
+      "text-pokemon-fairy-950": type === "fairy",
+    },
+  ]}
+>
+  <slot />
+</Tag>
