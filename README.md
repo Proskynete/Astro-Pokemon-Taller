@@ -40,6 +40,7 @@ Sumerjámonos en el emocionante mundo de Astro, el framework que está revolucio
 
 - [Astro](https://docs.astro.build/en/getting-started/)
 - [PokeAPI](https://pokeapi.co/)
+- [Sprites](https://www.pokencyclopedia.info/en/index.php?id=sprites/gen5/ani_black-white)
 
 ### Inspiración y agradecimientos
 
